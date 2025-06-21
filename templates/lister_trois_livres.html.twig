@@ -1,0 +1,33 @@
+{% extends 'base.html.twig'%}
+
+
+{% block body %}
+<style>
+    .position_card{
+        
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    margin-top: 10%;
+    }
+
+    .hauteur_card{
+        margin-bottom: 18%;
+    }
+    
+</style>
+
+<div class="position_card">
+    {% for auteur in auteurs %}
+            <div class="hauteur_card">
+                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Auteur ayant écrit au moins 3 livres</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Nom/Prénom de l'auteur :</h5>
+                        <p class="card-text">{{auteur.getNomPrenom()}}</p>
+                    </div>
+                </div> 
+            </div>
+    {% endfor  %}
+</div>
+ {% endblock %}

@@ -1,0 +1,23 @@
+
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-md-3">{{ form_row(form.isbn) }}</div>
+    <div class="col-md-3">{{ form_row(form.titre) }}</div>
+    <div class="col-md-3">{{ form_row(form.nbpages) }}</div>
+</div>
+<div class="row">
+    <div class="col-md-3">{{ form_row(form.note) }}</div>
+</div>
+<div class="row">
+    <div class="col-md-3">{{ form_row(form.date_de_parution) }}</div>
+</div>
+    {{ form_widget(form) }}
+    <div class="container mt-4">
+<div class="row">
+    <div class="col-md-1"><button class="btn btn-success">{{ button_label|default('Ajouter') }}</button></div>
+   <div class="col-md-2"><a href="{{ path('livre_lister') }}" class="btn btn-secondary" >Retour à la liste</a></div>
+</div>
+</div>
+</div>
+{{ form_end(form) }}
+

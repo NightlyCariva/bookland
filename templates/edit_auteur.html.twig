@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1> ici changement de l'auteur {{ auteur.getNomPrenom() }}
+    <h3> Pour rappel :</h3>
+    <ul>
+        <li>Nom Prénom : {{auteur.getNomPrenom()}}</li>
+        <li>Sexe : {{auteur.getSexe()}}</li>
+        <li>Date de Naissance : {{auteur.getDateDeNaissance() | date('d/m/Y')}}</li>
+        <li>Nationalité : {{auteur.getNationalite()}}</li>
+    </ul>
+    {{ form_start(formAuteur) }}
+
+    {{form_row(formAuteur.nom_prenom, {'attr':{'placeholder':"Nom et Prénom de l'auteur"}})}}
+    {{form_row(formAuteur.sexe, {'attr':{'placeholder':"Le Sexe M pour Mâle et F pour Femelle"}})}}
+    {{form_row(formAuteur.nationalite, {'attr':{'placeholder':"Nationalité de l'auteur à ajouter (exp : France)"}})}}
+    {{form_row(formAuteur.date_de_naissance)}}
+    </br>
+    <div class="bt_sub">
+        <button type="submit" class="btn btn-primary">Enregistrer les modification</button>
+    </div>
+
+    {{ form_end(formAuteur) }}
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'base.html.twig'%}
+
+
+{% block body %}
+<style>
+    .tableau{
+         margin-top: 5%;
+    }
+</style>
+
+
+<br>
+<h1>
+  Bienvenue dans 
+  <small class="text-muted">bookland !</small>
+</h1>
+
+
+ 
+<div class="tableau">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Veuillez choisir une action</th>
+    </tr>
+  </thead>
+<tr class="table-primary">
+
+    <th scope="row">Lister les livres dont la date de parution est comprise entre deux années données</th>
+    <td></td>
+    <td></td>
+    <td> <a href="/action13">Cliquez ici </a></td>
+
+</tr>
+
+<tr class="table-active">
+
+    <th scope="row">Lister les livres dont tous les auteurs sont de nationalités différentes</th>
+    <td></td>
+    <td></td>
+    <td> <a href="/action14">Cliquez ici </a></td>
+</tr>
+
+<tr class="table-primary">
+
+    <th scope="row">Lister les livres ayant été publiés entre 2 dates données et ayant une note comprise entre 2 
+notes données</th>
+    <td></td>
+    <td></td>
+    <td> <a href="/action15">Cliquez ici </a></td>
+</tr>
+
+<tr class="table-active">
+
+    <th scope="row">Lister les auteurs ayant écrits dans au moins 3 livres différents</th>
+    <td></td>
+    <td></td>
+    <td> <a href="/action16">Cliquez ici </a></td>
+</tr>
+
+<tr class="table-primary">
+
+    <th scope="row">Lister tous les livres pour lesquels la parité homme/femme parmi les auteurs est respectée</th>
+    <td></td>
+    <td></td>
+    <td> <a href="/action17">Cliquez ici </a></td>
+</tr>
+
+
+<tr class="table-active">
+
+    <th scope="row">Lister les genres et pour chacun d’entre eux, la liste des auteurs ayant publié au 
+moins un livre</th>
+    <td></td>
+    <td></td>
+    <td> <a href="/action18">Cliquez ici </a></td>
+</tr>
+<tr class="table-primary">
+
+    <th scope="row">Lister le nombre total de pages écrites dans un genre donné</th>
+    <td></td>
+    <td></td>
+    <td> <a href="/action19">Cliquez ici </a></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+ 
+
+ {% endblock %}

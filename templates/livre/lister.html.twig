@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Livres!{% endblock %}
+
+{% block body %}
+ <div class="form-group">
+    {{form(form5)}}
+ </div>
+<div class="form-group">
+    {{form(form4)}}
+    {% if nbpagesmoyenne !=0 %}
+    {% for page in nbpagesmoyenne %}
+    <b>le nombre des pages moyenne de l'ensemble des livre de ce genre : {{page.moyenne}} </b>
+    {% if page.moyenne == 0  %}
+    <p>calcule de moyenne impossible aucun genre trouvé</p> 
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+  
+ </div>
+
+  <div class="container">
+    <h1>Nos Livres : </h1>
+    </div>
+    <table class="table container mt-4">
+        <thead>
+            <tr>
+                <th>Isbn </th>
+                <th>titre</th>
+                <th>date de parution</th>
+                <th>note / 20 </th>
+                <th>nombre de pages </th>
+                <th>Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for liv in livres %}
+             <tr>
+                <td>{{ liv.isbn }}</td>
+                <td>{{ liv.titre }}</td>
+                <td>{{liv.datedeparution|date('d/m/Y')}}</td>
+                <td>{{ liv.note }}</td>
+                <td>{{ liv.nbpages }}</td> 
+                 
+                   <td> <a class="btn btn-primary" href="{{ path('livre_edit', {'id': liv.id}) }}" >modifier</a></td>
+                   <td> <a class="btn btn-info"  href="{{ path('livre_details', {'id': liv.id}) }}" >details livre</a></td>
+                   <td> <a class="btn btn-danger" href="{{ path('livre_delete', {'id': liv.id}) }}" >supprimer</a></td>         
+
+            </tr>
+            {% else %}
+            <tr>
+               <td>aucun livre trouvé</td>
+            </tr>
+        {% endfor %}
+     
+        </tbody>
+    </table>
+ 
+{% endblock %}

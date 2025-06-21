@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details livre{% endblock %}
+
+{% block body %}
+    <h1>Les details du livre : {{ livre.titre }}</h1>
+
+    <table class="container mt-4">
+        <tbody>
+            <tr>
+                <th>Id du livre :</th>
+                <td>{{ livre.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre :</th>
+                <td>{{ livre.titre }}</td>
+            </tr>
+             <tr>
+                <th>Date de parution :</th>
+                <td>{{ livre.datedeparution|date('d/m/Y') }}</td>
+            </tr>
+             <tr>
+                <th>Note :</th>
+                <td>{{ livre.note }}
+                <a class="btn btn-success" href="{{ path('note_augmenter', {'id': livre.id}) }}">+</a>
+                <a class="btn btn-danger" href="{{ path('note_reduire', {'id': livre.id}) }}">-</a>
+                </td>
+            </tr>
+             <tr>
+                <th>Genre :</th>
+                {% for gen in livre.genre %}
+                 <td>{{ gen.nom}}</td>
+                 {% endfor %}
+                <td></td>
+               
+            </tr>  
+        
+        </tbody>
+    </table><br>
+
+    <table class="">
+            <tr>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('livre_lister') }}">liste des livres</a>
+                </td>
+                <td>
+                </td>
+            </tr>
+    </table><br>
+
+ 
+{% endblock %}

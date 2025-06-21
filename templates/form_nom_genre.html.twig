@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig'%}
+{% block body %}
+   <style>
+    .position{
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+            margin-top: 5%;
+    }
+    .position_titre{
+        text-align:center;
+        margin-top: 5%;
+
+    }
+   </style>
+
+    <h4 class="position_titre"> Saisir le genre pour calculer le nombre des pages qu'il contient</h4>
+<div class="position">
+    <div class="form-control">
+        {{form_start(form)}}
+        {{ form_row(form.nom_genre) }}
+        <div class="position">
+            {{ form_row(form.Valider) }}
+        </div>
+        {{form_end(form)}}
+    </div>
+</div>
+{% endblock %}
+
+    

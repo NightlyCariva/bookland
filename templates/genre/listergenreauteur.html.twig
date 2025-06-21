@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}les genres dans lequels les auteurs ont écrit!{% endblock %}
+
+{% block body %}
+
+{% for auteur, noms in auteurs %}
+   <b> le nom de l'auteur : {{ auteur }}<b>
+  
+    <table class="container mt-4">
+        <tbody>
+
+             <tr>
+                <th>l'auteur à écrit dans ces genres :</th>
+               {% for nom in noms %}
+                <td>-{{ nom }}</td>
+                 {% endfor %}
+              
+            </tr>
+            
+        </tbody>
+    </table><br>
+  {% endfor %}
+    <table class="">
+            <tr>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('livre_lister') }}">liste les livres</a>
+                </td>
+                <td>
+               
+                </td>
+            </tr>
+    </table><br>
+
+ 
+{% endblock %}

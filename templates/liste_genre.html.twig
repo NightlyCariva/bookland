@@ -1,0 +1,35 @@
+{% extends 'base.html.twig'%}
+
+
+{% block body %}
+<style>
+    .position_card{
+        
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    margin-top: 5%;
+    }
+
+    .hauteur_card{
+        margin-bottom: 5%;
+    }
+    
+</style>
+<div class="position_card">
+    {% for genre in genres %}
+       
+       <div class="hauteur_card">
+            <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Genre : {{genre.nom}}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Nom/Prénom de l'auteur</h5>
+                        <p class="card-text">{{genre.nom_prenom}}</p>
+                        <h5 class="card-title">Dans l'oeuvre :</h5>
+                        <p class="card-text">{{ genre.titre}}</p>
+                    </div> 
+            </div>
+        </div>
+    {% endfor  %}
+</div>
+ {% endblock %}

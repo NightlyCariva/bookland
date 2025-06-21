@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Auteurs!{% endblock %}
+
+{% block body %}
+
+
+    <table class="table container mt-4">
+        <thead>
+            <tr>
+                <th>nom et prenom : </th>
+                 <th>sexe :</th>
+                <th>date de naissance :</th>
+                <th>Nationalité :</th>
+                <th>Action :</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for auteur in auteures %}
+            <tr>
+                <td>{{ auteur.nomprenom }}</td>
+                <td>{{ auteur.sexe }}</td>
+                <td>{{ auteur.datedenaissance|date('d/m/Y') }}</td>
+                <td>{{auteur.nationalite}}</td> 
+                 <td>
+                    <a class="btn btn-primary" href="{{ path('edit', {'id': auteur.id})}}">modifier</a>
+                    <a class="btn  btn-info" href="{{ path('auteur_details', {'id': auteur.id})}}" >afficher détails</a>
+                    <a class="btn btn-danger" href="{{ path('delet', {'id': auteur.id})}}">supprimer</a>
+                    <a class="btn btn-info" href="{{ path('addlivre', {'id': auteur.id})}}">associer un livre</a>
+                </td>
+            </tr>
+            
+        {% else %}
+            <tr>
+                <td colspan="3">aucun auteur trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+      {% endblock %}

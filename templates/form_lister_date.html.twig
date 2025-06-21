@@ -1,0 +1,14 @@
+{% extends 'base.html.twig'%}
+{% form_theme form 'bootstrap_4_layout.html.twig'%}
+
+{% block body %}
+
+
+    {{ form_start(form)}}
+
+    {{ form_row(form.date1)}}
+    {{ form_row(form.date2)}}
+
+    {{form_end(form)}}
+
+{% endblock %}

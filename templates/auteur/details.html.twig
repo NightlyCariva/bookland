@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details auteur{% endblock %}
+
+{% block body %}
+    <h1>Les details de : {{ auteur.nomprenom }}</h1>
+
+    <table class="container mt-4">
+        <tbody>
+            <tr>
+                <th>Id de l'auteur :</th>
+                <td>{{ auteur.id }}</td>
+            </tr>
+              <tr>
+                <th>Sexe :</th>
+                <td>{{ auteur.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Nationalité :</th>
+                <td>{{ auteur.nationalite }}</td>
+            </tr>
+             <tr>
+                <th>Date de naissance :</th>
+                <td>{{ auteur.datedenaissance|date('d/m/Y') }}</td>
+            </tr>
+
+             <tr>
+                <th>les livres de cet auteur :</th>
+                {% for livre in auteur.livres %}
+                <td>-{{ livre.titre}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+             <th>les genres dans lequels l'auteur à écrit au moins un livre :</th>
+            </tr>
+        <tbody>
+         {% for genre in genres %}
+            <tr>
+                <td>{{ genre.nom }}</td>
+            </tr>
+             {% else %}
+            <tr>
+                <td colspan="3">aucun genre trouvé</td>
+            </tr>
+        {% endfor %}
+            </tbody>
+            
+    <table class="">
+            <tr>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('auteur_lister') }}">liste des auteurs</a>
+                </td>
+                <td>
+               
+                </td>
+            </tr>
+    </table><br>
+
+ 
+{% endblock %}
